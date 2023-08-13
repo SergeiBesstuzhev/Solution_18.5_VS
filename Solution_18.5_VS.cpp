@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 class PlayerList {
 public:
@@ -8,6 +9,9 @@ public:
     PlayerList(std::string _Name, float _Score) : Name(_Name), Score(_Score) {}
     void ShowParam() {
         std::cout << Name << " " << Score << "\n";
+    }
+    float GetScore() {
+        return Score;
     }
 private:
     std::string Name;
@@ -41,6 +45,18 @@ int main()
     }
 
     std::cout << "\t.:Player List:. \n\n";
+
+    // sort array
+    for (int i = 0; i < PlayerCount - 1; i++) {
+        PlayerList p;
+        for (int j = 1; j < PlayerCount; j++) {
+            if (pArr[i].GetScore() < pArr[j].GetScore()) {
+                p = pArr[i];
+                pArr[i] = pArr[j];
+                pArr[j] = p;
+            }
+        }
+    }
 
     for (int i = 0; i < PlayerCount; i++) {
         pArr[i].ShowParam();
