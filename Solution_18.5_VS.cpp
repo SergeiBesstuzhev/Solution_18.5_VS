@@ -54,6 +54,8 @@ int main()
                 p = pArr[i];
                 pArr[i] = pArr[j];
                 pArr[j] = p;
+                // метод меняет местами элементы
+                //std::swap(pArr[i], pArr[j]); 
             }
         }
     }
